@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Compliance | faceless.y1syn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,700&family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@100;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0d0d0d;
+            --accent: #c5a358; /* Muted Champagne Gold */
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --border: rgba(255, 255, 255, 0.05);
+            --danger: #b33a3a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', 'Noto Kufi Arabic', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle Grain Overlay for texture */
+        body::before {
+            content: "";
+            position: fixed; inset: 0;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.03; pointer-events: none; z-index: 99;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            padding: 100px 40px;
+        }
+
+        /* Sidebar - Fixed Brand Identity */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .brand-label {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .main-heading {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .brand-desc {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            max-width: 320px;
+            font-weight: 300;
+        }
+
+        /* Content Panel */
+        .content-protocol {
+            border-right: 1px solid var(--border);
+            padding-right: 60px;
+        }
+
+        .section {
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s ease forwards;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-index {
+            font-family: 'Inter';
+            font-size: 0.7rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Noto Kufi Arabic';
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        .section-text {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        .section-text b {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Executive Alert Box */
+        .alert-box {
+            background: #0a0505;
+            border: 1px solid var(--danger);
+            padding: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .alert-box i {
+            color: var(--danger);
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1.2rem;
+        }
+
+        .alert-box p {
+            font-size: 0.9rem;
+            color: #d19999;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-group {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-exec {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 16px 35px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+            background: transparent;
+        }
+
+        .btn-exec:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-filled {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+
+        .btn-filled:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        footer {
+            grid-column: span 2;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; padding: 60px 30px; }
+            .sidebar { position: relative; top: 0; margin-bottom: 60px; }
+            .content-protocol { border-right: none; padding-right: 0; }
+            .main-heading { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <span class="brand-label">Official Protocol</span>
+            <h1 class="main-heading">FACELESS<br>Y1SYN</h1>
+            <p class="brand-desc">
+                قسم الامتثال القانوني وحماية الأصول الرقمية. نحن نؤمن بأن الإبداع يستحق الحماية المطلقة.
+            </p>
+            <div class="btn-group">
+                <a href="https://instagram.com/faceless.y1syn" class="btn-exec btn-filled">Instagram</a>
+                <a href="#protocol" class="btn-exec">The Legal</a>
+            </div>
+        </aside>
+
+        <main class="content-protocol" id="protocol">
+            <div class="section">
+                <span class="section-index">01 / OWNERSHIP</span>
+                <h2 class="section-title">بروتوكول ملكية المصنفات</h2>
+                <p class="section-text">
+                    تمثل جميع المواد البصرية والتقنيات المنشورة أصولاً رقمية مملوكة حصرياً لـ <b>faceless.y1syn</b>. إن استخدام "الأسلوب" أو محاكاة الهوية البصرية دون تصريح يُعد انتهاكاً لسياسة الملكية الفكرية.
+                </p>
+            </div>
+
+            <div class="section">
+                <span class="section-index">02 / COMPLIANCE</span>
+                <h2 class="section-title">الامتثال القانوني الدولي</h2>
+                <p class="section-text">
+                    المحتوى محمي بموجب معاهدات <b>WIPO</b> وقانون <b>DMCA</b>. نحن نستخدم تقنيات التتبع الرقمي (Digital Watermarking) لضمان سلامة المحتوى واكتشاف التعديلات غير المرخصة بشكل آلي.
+                </p>
+            </div>
+
+            <div class="section">
+                <span class="section-index">03 / ACTIONS</span>
+                <h2 class="section-title">التدابير والإجراءات</h2>
+                <p class="section-text">
+                    يتم التعامل مع الانتهاكات من خلال القنوات القانونية المعتمدة لدى منصة <b>Meta</b>، بالإضافة إلى الملاحقة المدنية في حالات الاستغلال التجاري غير المرخص.
+                </p>
+                
+                <div class="alert-box">
+                    <i class="fas fa-gavel"></i>
+                    <p>
+                        تنبيه: إعادة النشر دون إذن كتابي رسمي يعرض الحساب المستضيف للمساءلة القانونية والمطالبة بالتعويض عن الأضرار المادية والمعنوية.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <span>© 2026 FACELESS.Y1SYN PROTOCOL</span>
+            <span>INTELLECTUAL PROPERTY DIVISION</span>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
